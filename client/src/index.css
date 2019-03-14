@@ -67,3 +67,15 @@ html, body {
         transform:scale(0);
     }
 }
+
+.tweets-submit {
+    display:flex;
+    align-items:center;
+}
+
+.tweets-submit > * {
+    --margin:5px;
+
+    margin-left:var(--margin);
+    margin-right:var(--margin);
+}

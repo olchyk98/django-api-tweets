@@ -7,6 +7,6 @@ from .serializers import TweetSerializer
 # Create your views here.
 
 class TweetsView(viewsets.ModelViewSet):
-    queryset = Tweet.objects.all()
+    queryset = Tweet.objects.all().order_by('-date')
     serializer_class = TweetSerializer
 # end
