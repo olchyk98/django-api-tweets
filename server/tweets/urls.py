@@ -7,5 +7,6 @@ router = routers.DefaultRouter()
 router.register('tweets', TweetsView)
 
 urlpatterns = [
-    path('', include(router.urls))
+    path('api/', include(router.urls)),
+    path('', include('client.urls'))
 ]

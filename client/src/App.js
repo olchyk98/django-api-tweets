@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+const controlEndpoint = "http://localhost:4000/api/tweets/"
+
 const Tweet = ({ content, date }) => (
     <article className="tweets-item">
         <span className="tweets-item-date">{ date }</span>
@@ -21,8 +23,9 @@ class Hero extends Component {
     }
 
     componentDidMount() {
-        fetch("http://localhost:4000/tweets", {
-            method: "GET"
+        fetch(controlEndpoint, {
+            method: "GET",
+            mode: 'same-origin'
         }).then((res) => {
             if(res.ok) {
                 return res.json();
@@ -59,8 +62,9 @@ class Hero extends Component {
     submit = () => {
         let content = this.newInputRef.value;
 
-        fetch(`http://localhost:4000/tweets/`, {
+        fetch(controlEndpoint, {
             method: "POST",
+            mode: 'same-origin',
             headers: {
                 'Content-Type': 'application/json'
             },
